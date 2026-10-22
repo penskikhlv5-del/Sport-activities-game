@@ -3,48 +3,48 @@ const levels = [
     label: "LEVEL 1",
     title: "WARM-UP",
     tag: "CHOOSE THE WORD",
-    coach: "Сначала пойми, какую информацию мы хотим узнать. Это поможет выбрать вопросительное слово.",
+    coach: "First decide what information you need. This will help you choose the question word.",
     type: "choice",
     items: [
-      { icon: "⚽", prompt: "Ты хочешь узнать <em>где</em> играет Ben.", context: "Ben plays football in the park.", options: ["What", "Where", "When"], answer: "Where", explain: "Where = где. Where does Ben play football?" },
-      { icon: "🎾", prompt: "Ты хочешь узнать, <em>когда</em> тренируется Mia.", context: "Mia trains on Tuesdays.", options: ["When", "Who", "Whose"], answer: "When", explain: "When = когда. When does Mia train?" },
-      { icon: "🏀", prompt: "Ты хочешь узнать, <em>кто</em> играет в баскетбол.", context: "Alex plays basketball.", options: ["How old", "Who", "What"], answer: "Who", explain: "Who = кто. Who plays basketball?" },
-      { icon: "🏊", prompt: "Ты хочешь узнать, <em>каким спортом</em> занимается Leo.", context: "Leo does karate.", options: ["What", "Where", "Whose"], answer: "What", explain: "What = что / какой. What sport does Leo do?" },
-      { icon: "👟", prompt: "Ты хочешь узнать, <em>чьи</em> это футбольные бутсы.", context: "They are Ben's football boots.", options: ["Who", "When", "Whose"], answer: "Whose", explain: "Whose = чей / чья / чьи. Whose football boots are these?" },
-      { icon: "🏅", prompt: "Ты хочешь узнать, <em>сколько медалей</em> есть у команды.", context: "The team has got five medals.", options: ["How old", "How many", "What"], answer: "How many", explain: "How many = сколько (с предметами). How many medals has the team got?" },
-      { icon: "🛹", prompt: "Ты хочешь узнать, <em>сколько лет</em> скейтбордисту.", context: "The skateboarder is ten.", options: ["When", "How many", "How old"], answer: "How old", explain: "How old = сколько лет. How old is the skateboarder?" }
+      { icon: "⚽", prompt: "Which word asks about a <em>place</em>?", context: "Ben plays football in the park.", options: ["What", "Where", "When"], answer: "Where", explain: "Where asks about a place. Where does Ben play football?" },
+      { icon: "🎾", prompt: "Which word asks about <em>time</em>?", context: "Mia trains on Tuesdays.", options: ["When", "Who", "Whose"], answer: "When", explain: "When asks about time. When does Mia train?" },
+      { icon: "🏀", prompt: "Which word asks about a <em>person</em>?", context: "Alex plays basketball.", options: ["How old", "Who", "What"], answer: "Who", explain: "Who asks about a person. Who plays basketball?" },
+      { icon: "🥋", prompt: "Which word asks about a <em>sport</em>?", context: "Leo does karate.", options: ["What", "Where", "Whose"], answer: "What", explain: "What asks about a thing or activity. What sport does Leo do?" },
+      { icon: "👟", prompt: "Which word asks about the <em>owner</em>?", context: "They are Ben's football boots.", options: ["Who", "When", "Whose"], answer: "Whose", explain: "Whose asks about the owner. Whose football boots are these?" },
+      { icon: "🏅", prompt: "Which words ask about a <em>number</em>?", context: "The team has got five medals.", options: ["How old", "How many", "What"], answer: "How many", explain: "How many asks about a number. How many medals has the team got?" },
+      { icon: "🛹", prompt: "Which words ask about someone's <em>age</em>?", context: "The skateboarder is ten.", options: ["When", "How many", "How old"], answer: "How old", explain: "How old asks about age. How old is the skateboarder?" }
     ]
   },
   {
     label: "LEVEL 2",
     title: "BUILD IT",
     tag: "BUILD THE QUESTION",
-    coach: "Ставь слова по формуле. Для Whose используй is/are, а для How many — have/has ... got.",
+    coach: "Follow the formula. Use is/are with Whose and have/has ... got with How many.",
     type: "builder",
     items: [
-      { icon: "🎾", prompt: "Спроси: <em>Где Emma играет в теннис?</em>", context: "Собери английский вопрос.", words: ["tennis", "Emma", "Where", "play", "does", "?"], answer: ["Where", "does", "Emma", "play", "tennis", "?"], hint: "Where + does + Emma + play ...?", explain: "После does используем play, не plays." },
-      { icon: "⚽", prompt: "Спроси: <em>Когда они тренируются?</em>", context: "Собери английский вопрос.", words: ["train", "When", "they", "?", "do"], answer: ["When", "do", "they", "train", "?"], hint: "When + do + they + train ...?", explain: "С they нужен помощник do." },
-      { icon: "🥋", prompt: "Спроси: <em>Каким спортом занимается Max?</em>", context: "Собери английский вопрос.", words: ["Max", "What", "do", "does", "sport", "?"], answer: ["What", "sport", "does", "Max", "do", "?"], hint: "What sport + does + Max + do ...?", explain: "Здесь первое do — обычный глагол, а does — помощник." },
-      { icon: "🏀", prompt: "Спроси: <em>Сколько мячей у тебя?</em>", context: "Используй have got.", words: ["got", "How many", "you", "balls", "have", "do", "?"], answer: ["How many", "balls", "have", "you", "got", "?"], hint: "How many balls + have + you + got?", explain: "С I/you/we/they используем have got: How many balls have you got?" },
-      { icon: "🏀", prompt: "Спроси: <em>Кто играет в баскетбол после школы?</em>", context: "Внимание: Who здесь само выполняет действие.", words: ["after school", "Who", "basketball", "plays", "does", "?"], answer: ["Who", "plays", "basketball", "after school", "?"], hint: "Who + plays + basketball ...? Помощник does не нужен.", explain: "Если Who означает «кто делает?», сразу ставим глагол с -s: Who plays...?" },
-      { icon: "🏸", prompt: "Спроси: <em>Чья это ракетка?</em>", context: "Используй is.", words: ["it", "does", "Whose", "racket", "is", "?"], answer: ["Whose", "racket", "is", "it", "?"], hint: "Whose racket + is + it?", explain: "После Whose + предмет используем is/are: Whose racket is it?" },
-      { icon: "🏅", prompt: "Спроси: <em>Сколько лет тренеру?</em>", context: "Здесь нужен глагол to be.", words: ["coach", "does", "the", "How old", "is", "?"], answer: ["How old", "is", "the", "coach", "?"], hint: "How old + is + the coach ...?", explain: "С возрастом используем is, а do/does не нужен." }
+      { icon: "🎾", prompt: "Emma plays tennis <em>at the sports centre</em>.", context: "Ask about the place.", words: ["tennis", "Emma", "Where", "play", "does", "?"], answer: ["Where", "does", "Emma", "play", "tennis", "?"], hint: "Where + does + Emma + play ...?", explain: "After does, use play — not plays." },
+      { icon: "⚽", prompt: "They train <em>on Saturdays</em>.", context: "Ask about the time.", words: ["train", "When", "they", "?", "do"], answer: ["When", "do", "they", "train", "?"], hint: "When + do + they + train ...?", explain: "Use do with they." },
+      { icon: "🥋", prompt: "Max does <em>karate</em>.", context: "Ask about the sport.", words: ["Max", "What", "do", "does", "sport", "?"], answer: ["What", "sport", "does", "Max", "do", "?"], hint: "What sport + does + Max + do ...?", explain: "The first do is the action verb; does is the helper." },
+      { icon: "🏀", prompt: "You have got <em>four balls</em>.", context: "Ask about the number.", words: ["got", "How many", "you", "balls", "have", "do", "?"], answer: ["How many", "balls", "have", "you", "got", "?"], hint: "How many balls + have + you + got?", explain: "Use have got with I, you, we, and they." },
+      { icon: "🏀", prompt: "<em>Sam</em> plays basketball after school.", context: "Ask about the person who does the action.", words: ["after school", "Who", "basketball", "plays", "does", "?"], answer: ["Who", "plays", "basketball", "after school", "?"], hint: "Who + plays + basketball ...? You do not need does.", explain: "When Who does the action, put the verb with -s straight after it." },
+      { icon: "🏸", prompt: "It is <em>Olivia's racket</em>.", context: "Ask about the owner.", words: ["it", "does", "Whose", "racket", "is", "?"], answer: ["Whose", "racket", "is", "it", "?"], hint: "Whose racket + is + it?", explain: "Use is/are after Whose + noun: Whose racket is it?" },
+      { icon: "🏅", prompt: "The coach is <em>thirty</em>.", context: "Ask about the coach's age.", words: ["coach", "does", "the", "How old", "is", "?"], answer: ["How old", "is", "the", "coach", "?"], hint: "How old + is + the coach ...?", explain: "Use is for age. You do not need do or does." }
     ]
   },
   {
     label: "LEVEL 3",
     title: "THE FINAL",
     tag: "FIND THE RIGHT QUESTION",
-    coach: "Проверь формулу: Whose + предмет + is/are; How many + предмет + have/has + кто? + got.",
+    coach: "Check the formula: Whose + noun + is/are; How many + noun + have/has + subject + got.",
     type: "correct",
     items: [
-      { icon: "🏐", prompt: "Выбери правильный вопрос: <em>Где Nina играет в волейбол?</em>", context: "Только один вариант построен верно.", options: ["Where Nina plays volleyball?", "Where does Nina play volleyball?", "Where does Nina plays volleyball?"], answer: 1, explain: "Верно: Where + does + Nina + play. После does у play нет -s." },
-      { icon: "🏃", prompt: "Выбери правильный вопрос: <em>Когда вы бегаете?</em>", context: "Только один вариант построен верно.", options: ["When do you run?", "When you do run?", "When does you run?"], answer: 0, explain: "С you используем do и ставим его перед подлежащим." },
-      { icon: "🏒", prompt: "Выбери правильный вопрос: <em>Кто играет в хоккей?</em>", context: "Who означает «кто выполняет действие?»", options: ["Who does play hockey?", "Who play hockey?", "Who plays hockey?"], answer: 2, explain: "Who здесь подлежащее: сразу ставим plays, без does." },
-      { icon: "⚽", prompt: "Выбери правильный вопрос: <em>Сколько мячей у него?</em>", context: "Используй has got.", options: ["How many balls has he got?", "How many balls have he got?", "How many balls has got he?"], answer: 0, explain: "С he/she/it используем has got: How many balls has he got?" },
-      { icon: "🚴", prompt: "Выбери правильный вопрос: <em>Чей это велосипед?</em>", context: "Здесь нужен глагол to be.", options: ["Whose is bike it?", "Whose bike is it?", "Whose bike are it?"], answer: 1, explain: "Whose + предмет + is/are + подлежащее: Whose bike is it?" },
-      { icon: "🧗", prompt: "Выбери правильный вопрос: <em>Сколько лет Oliver?</em>", context: "Здесь нужен глагол to be.", options: ["How old Oliver is?", "How old does Oliver?", "How old is Oliver?"], answer: 2, explain: "Возраст: How old + is + имя?" },
-      { icon: "🏓", prompt: "Выбери правильный вопрос: <em>Во что они играют по пятницам?</em>", context: "Только один вариант построен верно.", options: ["What do they play on Fridays?", "What they play on Fridays?", "What does they play on Fridays?"], answer: 0, explain: "С they нужен do: What do they play...?" }
+      { icon: "🏐", prompt: "Nina plays volleyball <em>at school</em>.", context: "Choose the correct question about the place.", options: ["Where Nina plays volleyball?", "Where does Nina play volleyball?", "Where does Nina plays volleyball?"], answer: 1, explain: "Correct: Where + does + Nina + play. There is no -s on play after does." },
+      { icon: "🏃", prompt: "You run <em>on Sundays</em>.", context: "Choose the correct question about the time.", options: ["When do you run?", "When you do run?", "When does you run?"], answer: 0, explain: "Use do with you and put it before the subject." },
+      { icon: "🏒", prompt: "<em>Leo</em> plays hockey.", context: "Choose the correct question about the person.", options: ["Who does play hockey?", "Who play hockey?", "Who plays hockey?"], answer: 2, explain: "Who is the subject here, so use plays without does." },
+      { icon: "⚽", prompt: "He has got <em>six balls</em>.", context: "Choose the correct question about the number.", options: ["How many balls has he got?", "How many balls have he got?", "How many balls has got he?"], answer: 0, explain: "Use has got with he, she, and it: How many balls has he got?" },
+      { icon: "🚴", prompt: "It is <em>Sam's bike</em>.", context: "Choose the correct question about the owner.", options: ["Whose is bike it?", "Whose bike is it?", "Whose bike are it?"], answer: 1, explain: "Whose + noun + is/are + subject: Whose bike is it?" },
+      { icon: "🧗", prompt: "Oliver is <em>ten</em>.", context: "Choose the correct question about age.", options: ["How old Oliver is?", "How old does Oliver?", "How old is Oliver?"], answer: 2, explain: "For age, use How old + is + name." },
+      { icon: "🏓", prompt: "They play <em>table tennis</em> on Fridays.", context: "Choose the correct question about the activity.", options: ["What do they play on Fridays?", "What they play on Fridays?", "What does they play on Fridays?"], answer: 0, explain: "Use do with they: What do they play...?" }
     ]
   }
 ];
@@ -147,12 +147,12 @@ function renderQuestion() {
   els.tag.textContent = level.tag;
   els.coach.textContent = level.coach;
   els.icon.textContent = item.icon;
-  els.progressLabel.textContent = `Задание ${overallCurrent} из ${total}`;
+  els.progressLabel.textContent = `Task ${overallCurrent} of ${total}`;
   els.progressPercent.textContent = `${percent}%`;
   els.progressBar.style.width = `${percent}%`;
   els.prompt.innerHTML = item.prompt;
   els.translation.textContent = item.context;
-  els.instruction.textContent = level.type === "choice" ? "Какое слово поможет задать вопрос?" : level.type === "builder" ? "Поставь слова в правильном порядке" : "Где правильный порядок слов?";
+  els.instruction.textContent = level.type === "choice" ? "Which question word do you need?" : level.type === "builder" ? "Put the words in the correct order" : "Which question has the correct word order?";
   els.feedback.className = "feedback hidden";
   els.check.classList.remove("hidden");
   els.check.disabled = true;
@@ -192,7 +192,7 @@ function renderChoices(item) {
 function renderBuilder(item) {
   const board = document.createElement("div");
   board.className = "sentence-board empty";
-  board.setAttribute("aria-label", "Собранный вопрос");
+  board.setAttribute("aria-label", "Question you have built");
   const bank = document.createElement("div");
   bank.className = "word-bank";
   item.words.forEach((word, index) => {
@@ -216,7 +216,7 @@ function addWord(index, word) {
   placed.type = "button";
   placed.className = "word-chip";
   placed.textContent = word;
-  placed.title = "Убрать слово";
+  placed.title = "Remove word";
   placed.addEventListener("click", () => removeWord(index));
   const board = els.answerArea.querySelector(".sentence-board");
   board.classList.remove("empty", "wrong");
@@ -279,7 +279,7 @@ function handleCorrect(level, item) {
   state.score += 10 + Math.min(state.streak - 1, 5) * 2;
   updateScoreboard();
   markAnswer(level, true, item);
-  showFeedback(true, state.streak >= 3 ? `Серия ×${state.streak}! ${item.explain}` : item.explain);
+  showFeedback(true, state.streak >= 3 ? `Streak ×${state.streak}! ${item.explain}` : item.explain);
   els.check.classList.add("hidden");
   els.next.classList.remove("hidden");
   els.hint.disabled = true;
@@ -291,8 +291,8 @@ function handleWrong(level, item) {
   updateScoreboard();
   markAnswer(level, false, item);
   const advice = level.type === "builder"
-    ? "Проверь начало вопроса и место do/does. Можно убрать слова и попробовать ещё раз."
-    : "Сверь порядок слов со шпаргалкой и попробуй ещё раз.";
+    ? "Check the beginning of the question and the position of do/does. Remove words and try again."
+    : "Compare the word order with the cheat sheet and try again.";
   showFeedback(false, advice);
   playTone(false);
   setTimeout(() => clearWrongMark(level), 900);
@@ -323,7 +323,7 @@ function clearWrongMark(level) {
 function showFeedback(correct, text) {
   els.feedback.className = `feedback${correct ? "" : " is-wrong"}`;
   els.feedbackIcon.textContent = correct ? "✓" : "!";
-  els.feedbackTitle.textContent = correct ? "Great job!" : "Почти! Попробуй ещё.";
+  els.feedbackTitle.textContent = correct ? "Great job!" : "Almost! Try again.";
   els.feedbackText.textContent = text;
 }
 
@@ -333,10 +333,10 @@ function showHint() {
   let text;
   if (level.type === "choice") text = item.explain.split(".")[0] + ".";
   else if (level.type === "builder") text = item.hint;
-  else text = "Начни с вопросительного слова. Затем проверь: нужен do/does или is/are?";
+  else text = "Start with the question word. Then decide whether you need do/does or is/are.";
   els.feedback.className = "feedback";
   els.feedbackIcon.textContent = "💡";
-  els.feedbackTitle.textContent = "Подсказка тренера";
+  els.feedbackTitle.textContent = "Coach's hint";
   els.feedbackText.textContent = text;
 }
 
@@ -362,13 +362,13 @@ function showResults() {
   els.accuracy.textContent = `${accuracy}%`;
   els.bestStreak.textContent = state.bestStreak;
   els.resultMessage.textContent = accuracy >= 85
-    ? "Ты — капитан вопросов! Порядок слов почти идеален."
+    ? "You are a question champion! Your word order is excellent."
     : accuracy >= 65
-      ? "Сильная игра! Ещё один матч — и вопросы станут лёгкими."
-      : "Хорошая тренировка! Открой шпаргалку и сыграй ещё раз.";
+      ? "Strong work! One more climb and questions will feel easy."
+      : "Good training! Check the cheat sheet and climb again.";
   els.learnedRule.textContent = state.correct >= 17
     ? "Wh-word + do/does + subject + verb?"
-    : "После DOES основной глагол всегда без -S.";
+    : "After DOES, the main verb never has -S.";
   showScreen(els.results);
   playTone(true);
 }
@@ -386,7 +386,7 @@ document.addEventListener("keydown", (event) => { if (event.key === "Escape") el
 els.sound.addEventListener("click", () => {
   state.sound = !state.sound;
   els.sound.setAttribute("aria-pressed", String(state.sound));
-  els.sound.setAttribute("aria-label", state.sound ? "Выключить звук" : "Включить звук");
+  els.sound.setAttribute("aria-label", state.sound ? "Turn sound off" : "Turn sound on");
   els.sound.querySelector("span").textContent = state.sound ? "♪" : "×";
   if (state.sound) playTone(true);
 });

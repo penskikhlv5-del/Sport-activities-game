@@ -188,7 +188,7 @@ h1 em { color: var(--pink); font-style: italic; -webkit-text-stroke: 1px var(--p
 .choice-button:disabled { cursor: default; }
 
 .sentence-board { min-height: 65px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px; padding: 13px; margin-bottom: 18px; background: #f1ede3; border: 2px dashed #bbb5a8; }
-.sentence-board.empty::after { content: "Нажимай на слова по порядку"; color: #938e82; font-size: 11px; }
+.sentence-board.empty::after { content: "Click the words in order"; color: #938e82; font-size: 11px; }
 .word-bank { display: flex; justify-content: center; flex-wrap: wrap; gap: 9px; }
 .word-chip { padding: 11px 15px 10px; background: white; border: 2px solid var(--ink); box-shadow: 3px 3px 0 #c7c2b7; font: 700 17px/1 var(--display); cursor: pointer; transition: transform .12s; }
 .word-chip:hover { transform: translateY(-2px); }

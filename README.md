@@ -1,12 +1,12 @@
 # Sport Question League
 
-Интерактивная игра для ученика 10 лет: специальные вопросы в Present Simple на тему спорта.
+An interactive game for a ten-year-old learner: sports-themed wh-questions in the Present Simple.
 
-## Учебная логика
+## Learning path
 
-1. Выбор вопросительного слова: `whose`, `what`, `how many`, `when`, `who`, `where`, `how old`.
-2. Сборка обычного вопроса по формуле: `Wh-word + do/does + subject + verb?`.
-3. Специальные модели: `Whose + noun + is/are + subject?` и `How many + noun + have/has + subject + got?`.
-4. Поиск правильного вопроса и типичных ошибок.
+1. Choose the question word: `whose`, `what`, `how many`, `when`, `who`, `where`, or `how old`.
+2. Build regular questions with `Wh-word + do/does + subject + verb?`.
+3. Practise `Whose + noun + is/are + subject?` and `How many + noun + have/has + subject + got?`.
+4. Find the correctly formed question and recognise common word-order mistakes.
 
-Игра также отдельно объясняет вопросы с `to be` и случай, когда `who` является подлежащим.
+The game also explains questions with `to be` and cases where `who` is the subject.
