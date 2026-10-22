@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#201a48">
+  <meta name="description" content="Игра для тренировки специальных вопросов в Present Simple на тему спорта.">
+  <title>Sport Question League</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="stadium-glow stadium-glow--one" aria-hidden="true"></div>
+  <div class="stadium-glow stadium-glow--two" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Sport Question League — на главную">
+      <span class="brand__mark">SQ</span>
+      <span class="brand__text">Sport Question<br><strong>League</strong></span>
+    </a>
+    <div class="scoreboard" aria-label="Результат игры">
+      <div class="scoreboard__item">
+        <span class="scoreboard__label">ОЧКИ</span>
+        <strong id="scoreValue">000</strong>
+      </div>
+      <div class="scoreboard__divider"></div>
+      <div class="scoreboard__item">
+        <span class="scoreboard__label">СЕРИЯ</span>
+        <strong id="streakValue">0 🔥</strong>
+      </div>
+    </div>
+    <button class="sound-button" id="soundToggle" type="button" aria-pressed="true" aria-label="Выключить звук">
+      <span aria-hidden="true">♪</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="homeScreen">
+      <div class="hero__copy">
+        <div class="eyebrow"><span></span> ENGLISH TRAINING CAMP</div>
+        <h1>Build the question.<br><em>Win the match.</em></h1>
+        <p class="hero__lead">Собирай вопросы о спорте, забивай голы и освой порядок слов в Present Simple.</p>
+
+        <div class="formula-card" aria-label="Главная формула вопроса">
+          <span class="formula-card__number">01</span>
+          <div>
+            <span class="formula-card__caption">ГЛАВНАЯ ФОРМУЛА</span>
+            <div class="formula">
+              <b class="formula__word formula__word--pink">Wh-word</b>
+              <span>+</span>
+              <b class="formula__word formula__word--yellow">do / does</b>
+              <span>+</span>
+              <b class="formula__word formula__word--blue">кто?</b>
+              <span>+</span>
+              <b class="formula__word formula__word--green">глагол</b>
+              <span>?</span>
+            </div>
+            <p><strong>Where</strong> does Mia <strong>play</strong> tennis?</p>
+          </div>
+        </div>
+
+        <button class="primary-button" id="startButton" type="button">
+          <span>НАЧАТЬ ТРЕНИРОВКУ</span><span aria-hidden="true">→</span>
+        </button>
+      </div>
+
+      <div class="hero__visual" aria-hidden="true">
+        <div class="court-lines"></div>
+        <div class="ball ball--football">⚽</div>
+        <div class="ball ball--basketball">🏀</div>
+        <div class="ball ball--tennis">🎾</div>
+        <div class="player-card">
+          <span class="player-card__tag">PLAYER 01</span>
+          <div class="player-card__avatar">🏃</div>
+          <strong>READY?</strong>
+          <small>Question captain</small>
+        </div>
+        <div class="question-word question-word--what">WHAT?</div>
+        <div class="question-word question-word--where">WHERE?</div>
+        <div class="question-word question-word--who">WHO?</div>
+      </div>
+
+      <div class="level-preview" aria-label="Этапы игры">
+        <div><span>1</span><p><strong>WARM-UP</strong><small>Выбери слово</small></p></div>
+        <div><span>2</span><p><strong>BUILD IT</strong><small>Собери вопрос</small></p></div>
+        <div><span>3</span><p><strong>FINAL</strong><small>Найди ошибку</small></p></div>
+      </div>
+    </section>
+
+    <section class="game hidden" id="gameScreen" aria-live="polite">
+      <div class="game__topline">
+        <button class="back-button" id="backButton" type="button" aria-label="Вернуться на главную">←</button>
+        <div class="round-title">
+          <span id="levelLabel">LEVEL 1</span>
+          <strong id="levelTitle">WARM-UP</strong>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-meta"><span id="progressLabel">Задание 1 из 7</span><span id="progressPercent">14%</span></div>
+          <div class="progress-track"><span id="progressBar"></span></div>
+        </div>
+      </div>
+
+      <div class="game__layout">
+        <aside class="coach-card">
+          <div class="coach-card__portrait">🧢</div>
+          <div>
+            <span>COACH SAYS</span>
+            <p id="coachText">Сначала пойми, какую информацию мы хотим узнать.</p>
+          </div>
+          <button id="formulaToggle" type="button">Шпаргалка <span>＋</span></button>
+        </aside>
+
+        <section class="challenge-card">
+          <div class="challenge-card__header">
+            <span class="challenge-tag" id="challengeTag">CHOOSE THE WORD</span>
+            <span class="sport-icon" id="sportIcon" aria-hidden="true">⚽</span>
+          </div>
+
+          <div class="prompt-block">
+            <p class="prompt-block__instruction" id="instructionText">Какое слово поможет задать вопрос?</p>
+            <h2 id="promptText">Ты хочешь узнать <em>где</em> играет Ben.</h2>
+            <p class="translation" id="translationText">Ben plays football in the park.</p>
+          </div>
+
+          <div class="answer-area" id="answerArea"></div>
+
+          <div class="feedback hidden" id="feedbackBox" role="status">
+            <div class="feedback__icon" id="feedbackIcon">✓</div>
+            <div>
+              <strong id="feedbackTitle">Great job!</strong>
+              <p id="feedbackText">Where = где.</p>
+            </div>
+          </div>
+
+          <div class="challenge-actions">
+            <button class="secondary-button" id="hintButton" type="button">💡 Подсказка</button>
+            <button class="check-button" id="checkButton" type="button" disabled>ПРОВЕРИТЬ</button>
+            <button class="check-button hidden" id="nextButton" type="button">ДАЛЬШЕ →</button>
+          </div>
+        </section>
+      </div>
+
+      <div class="formula-drawer hidden" id="formulaDrawer">
+        <button class="formula-drawer__close" id="formulaClose" type="button" aria-label="Закрыть">×</button>
+        <span class="eyebrow"><span></span> ШПАРГАЛКА</span>
+        <h3>Как строится вопрос?</h3>
+        <div class="rule-grid">
+          <article>
+            <span>ОБЫЧНЫЙ ГЛАГОЛ</span>
+            <p><b>Wh-word</b> + do/does + кто? + verb?</p>
+            <small>Where <u>does</u> Leo <u>train</u>?</small>
+          </article>
+          <article>
+            <span>ГЛАГОЛ TO BE</span>
+            <p><b>Wh-word</b> + am/is/are + кто?</p>
+            <small>How old <u>is</u> the coach?</small>
+          </article>
+          <article>
+            <span>WHO = КТО ДЕЛАЕТ?</span>
+            <p><b>Who</b> + verb-s + остальное?</p>
+            <small>Who <u>plays</u> volleyball?</small>
+          </article>
+        </div>
+        <div class="word-meanings">
+          <span><b>what</b> что / какой</span>
+          <span><b>where</b> где</span>
+          <span><b>when</b> когда</span>
+          <span><b>who</b> кто</span>
+          <span><b>whose</b> чей</span>
+          <span><b>how many</b> сколько</span>
+          <span><b>how old</b> сколько лет</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="results hidden" id="resultsScreen">
+      <div class="results__burst" aria-hidden="true">★</div>
+      <span class="eyebrow"><span></span> FULL TIME</span>
+      <h2>Матч окончен!</h2>
+      <p id="resultMessage">Ты отлично потренировал вопросы.</p>
+      <div class="trophy" aria-hidden="true">🏆</div>
+      <div class="result-score"><strong id="finalScore">0</strong><span>ОЧКОВ</span></div>
+      <div class="result-stats">
+        <div><strong id="correctCount">0</strong><span>верных</span></div>
+        <div><strong id="accuracyValue">0%</strong><span>точность</span></div>
+        <div><strong id="bestStreak">0</strong><span>лучшая серия</span></div>
+      </div>
+      <div class="result-rule">
+        <span>ТВОЯ СУПЕРСИЛА</span>
+        <p id="learnedRule">Wh-word + do/does + subject + verb?</p>
+      </div>
+      <button class="primary-button" id="restartButton" type="button"><span>СЫГРАТЬ ЕЩЁ РАЗ</span><span>↻</span></button>
+    </section>
+  </main>
+
+  <footer>
+    <span>SPORT QUESTION LEAGUE</span>
+    <span>Learn • Play • Score</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
