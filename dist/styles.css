@@ -219,8 +219,7 @@ h1 em { color: var(--pink); font-style: italic; -webkit-text-stroke: 1px var(--p
 .feedback strong { font: 800 17px/1 var(--display); }
 .feedback p { margin: 3px 0 0; color: #545063; font-size: 12px; line-height: 1.4; }
 .challenge-actions { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 24px; padding-top: 20px; border-top: 1px dashed #c9c5bb; }
-.secondary-button, .check-button { min-height: 44px; padding: 0 18px; border: 2px solid var(--ink); font-size: 11px; font-weight: 800; cursor: pointer; }
-.secondary-button { margin-right: auto; background: white; }
+.check-button { min-height: 44px; padding: 0 18px; border: 2px solid var(--ink); font-size: 11px; font-weight: 800; cursor: pointer; }
 .check-button { min-width: 145px; color: white; background: var(--pink); box-shadow: 4px 4px 0 var(--ink); }
 .check-button:disabled { opacity: .35; cursor: default; box-shadow: none; }
 
@@ -305,7 +304,6 @@ footer { width: min(1180px, calc(100% - 40px)); margin: 0 auto; display: flex; j
   .prompt-block { padding: 25px 0 20px; }
   .choice-grid { grid-template-columns: repeat(2, 1fr); }
   .challenge-actions { flex-wrap: wrap; }
-  .secondary-button { width: 100%; margin: 0; }
   .check-button { flex: 1; }
   .rule-grid { grid-template-columns: 1fr; max-height: 55vh; overflow-y: auto; }
   .formula-drawer { padding: 23px 18px; }

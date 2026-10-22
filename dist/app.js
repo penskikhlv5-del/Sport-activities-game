@@ -22,13 +22,13 @@ const levels = [
     coach: "Follow the formula. Use is/are with Whose and have/has ... got with How many.",
     type: "builder",
     items: [
-      { icon: "🎾", prompt: "Emma plays tennis <em>at the sports centre</em>.", context: "Ask about the place.", words: ["tennis", "Emma", "Where", "play", "does", "?"], answer: ["Where", "does", "Emma", "play", "tennis", "?"], hint: "Where + does + Emma + play ...?", explain: "After does, use play — not plays." },
-      { icon: "⚽", prompt: "They train <em>on Saturdays</em>.", context: "Ask about the time.", words: ["train", "When", "they", "?", "do"], answer: ["When", "do", "they", "train", "?"], hint: "When + do + they + train ...?", explain: "Use do with they." },
-      { icon: "🥋", prompt: "Max does <em>karate</em>.", context: "Ask about the sport.", words: ["Max", "What", "do", "does", "sport", "?"], answer: ["What", "sport", "does", "Max", "do", "?"], hint: "What sport + does + Max + do ...?", explain: "The first do is the action verb; does is the helper." },
-      { icon: "🏀", prompt: "You have got <em>four balls</em>.", context: "Ask about the number.", words: ["got", "How many", "you", "balls", "have", "do", "?"], answer: ["How many", "balls", "have", "you", "got", "?"], hint: "How many balls + have + you + got?", explain: "Use have got with I, you, we, and they." },
-      { icon: "🏀", prompt: "<em>Sam</em> plays basketball after school.", context: "Ask about the person who does the action.", words: ["after school", "Who", "basketball", "plays", "does", "?"], answer: ["Who", "plays", "basketball", "after school", "?"], hint: "Who + plays + basketball ...? You do not need does.", explain: "When Who does the action, put the verb with -s straight after it." },
-      { icon: "🏸", prompt: "It is <em>Olivia's racket</em>.", context: "Ask about the owner.", words: ["it", "does", "Whose", "racket", "is", "?"], answer: ["Whose", "racket", "is", "it", "?"], hint: "Whose racket + is + it?", explain: "Use is/are after Whose + noun: Whose racket is it?" },
-      { icon: "🏅", prompt: "The coach is <em>thirty</em>.", context: "Ask about the coach's age.", words: ["coach", "does", "the", "How old", "is", "?"], answer: ["How old", "is", "the", "coach", "?"], hint: "How old + is + the coach ...?", explain: "Use is for age. You do not need do or does." }
+      { icon: "🎾", prompt: "Emma plays tennis <em>at the sports centre</em>.", context: "Ask about the place.", words: ["tennis", "Emma", "Where", "play", "does", "?"], answer: ["Where", "does", "Emma", "play", "tennis", "?"], explain: "After does, use play — not plays." },
+      { icon: "⚽", prompt: "They train <em>on Saturdays</em>.", context: "Ask about the time.", words: ["train", "When", "they", "?", "do"], answer: ["When", "do", "they", "train", "?"], explain: "Use do with they." },
+      { icon: "🥋", prompt: "Max does <em>karate</em>.", context: "Ask about the sport.", words: ["Max", "What", "do", "does", "sport", "?"], answer: ["What", "sport", "does", "Max", "do", "?"], explain: "The first do is the action verb; does is the helper." },
+      { icon: "🏀", prompt: "You have got <em>four balls</em>.", context: "Ask about the number.", words: ["got", "How many", "you", "balls", "have", "do", "?"], answer: ["How many", "balls", "have", "you", "got", "?"], explain: "Use have got with I, you, we, and they." },
+      { icon: "🏀", prompt: "<em>Sam</em> plays basketball after school.", context: "Ask about the person who does the action.", words: ["after school", "Who", "basketball", "plays", "does", "?"], answer: ["Who", "plays", "basketball", "after school", "?"], explain: "When Who does the action, put the verb with -s straight after it." },
+      { icon: "🏸", prompt: "It is <em>Olivia's racket</em>.", context: "Ask about the owner.", words: ["it", "does", "Whose", "racket", "is", "?"], answer: ["Whose", "racket", "is", "it", "?"], explain: "Use is/are after Whose + noun: Whose racket is it?" },
+      { icon: "🏅", prompt: "The coach is <em>thirty</em>.", context: "Ask about the coach's age.", words: ["coach", "does", "the", "How old", "is", "?"], answer: ["How old", "is", "the", "coach", "?"], explain: "Use is for age. You do not need do or does." }
     ]
   },
   {
@@ -60,7 +60,7 @@ const els = {
   tag: $("#challengeTag"), icon: $("#sportIcon"), instruction: $("#instructionText"),
   prompt: $("#promptText"), translation: $("#translationText"), answerArea: $("#answerArea"),
   feedback: $("#feedbackBox"), feedbackIcon: $("#feedbackIcon"), feedbackTitle: $("#feedbackTitle"),
-  feedbackText: $("#feedbackText"), hint: $("#hintButton"), check: $("#checkButton"), next: $("#nextButton"),
+  feedbackText: $("#feedbackText"), check: $("#checkButton"), next: $("#nextButton"),
   drawer: $("#formulaDrawer"), formulaToggle: $("#formulaToggle"), formulaClose: $("#formulaClose"),
   finalScore: $("#finalScore"), correctCount: $("#correctCount"), accuracy: $("#accuracyValue"),
   bestStreak: $("#bestStreak"), resultMessage: $("#resultMessage"), learnedRule: $("#learnedRule")
@@ -157,7 +157,6 @@ function renderQuestion() {
   els.check.classList.remove("hidden");
   els.check.disabled = true;
   els.next.classList.add("hidden");
-  els.hint.disabled = false;
   els.answerArea.innerHTML = "";
 
   if (level.type === "choice") renderChoices(item);
@@ -282,7 +281,6 @@ function handleCorrect(level, item) {
   showFeedback(true, state.streak >= 3 ? `Streak ×${state.streak}! ${item.explain}` : item.explain);
   els.check.classList.add("hidden");
   els.next.classList.remove("hidden");
-  els.hint.disabled = true;
   playTone(true);
 }
 
@@ -327,19 +325,6 @@ function showFeedback(correct, text) {
   els.feedbackText.textContent = text;
 }
 
-function showHint() {
-  const level = currentLevel();
-  const item = currentItem();
-  let text;
-  if (level.type === "choice") text = item.explain.split(".")[0] + ".";
-  else if (level.type === "builder") text = item.hint;
-  else text = "Start with the question word. Then decide whether you need do/does or is/are.";
-  els.feedback.className = "feedback";
-  els.feedbackIcon.textContent = "💡";
-  els.feedbackTitle.textContent = "Coach's hint";
-  els.feedbackText.textContent = text;
-}
-
 function nextQuestion() {
   if (state.item < currentLevel().items.length - 1) {
     state.item += 1;
@@ -377,7 +362,6 @@ els.start.addEventListener("click", startGame);
 els.restart.addEventListener("click", startGame);
 els.check.addEventListener("click", checkAnswer);
 els.next.addEventListener("click", nextQuestion);
-els.hint.addEventListener("click", showHint);
 els.back.addEventListener("click", () => showScreen(els.home));
 els.formulaToggle.addEventListener("click", () => els.drawer.classList.remove("hidden"));
 els.formulaClose.addEventListener("click", () => els.drawer.classList.add("hidden"));
