@@ -67,6 +67,13 @@ button:focus-visible, a:focus-visible { outline: 4px solid rgba(84, 199, 255, .5
 .brand__text { font: 700 14px/1.02 var(--display); letter-spacing: .08em; text-transform: uppercase; }
 .brand__text strong { color: var(--pink); font-weight: 900; }
 
+.topbar__tools { justify-self: end; display: flex; align-items: center; gap: 18px; }
+.creator-logo { display: inline-flex; align-items: center; gap: 9px; padding: 7px 10px 7px 8px; background: rgba(255,253,247,.72); border: 1px solid rgba(24,20,63,.18); transform: rotate(1deg); }
+.creator-logo__mark { display: grid; place-items: center; width: 34px; height: 34px; color: white; background: var(--pink); border: 2px solid var(--ink); box-shadow: 3px 3px 0 var(--yellow); font: italic 900 16px/1 var(--display); letter-spacing: -.02em; transform: rotate(-4deg); }
+.creator-logo__text { display: grid; gap: 2px; white-space: nowrap; }
+.creator-logo__text small { color: var(--muted); font: 700 7px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; }
+.creator-logo__text strong { font: italic 800 15px/1 var(--display); letter-spacing: .02em; }
+
 .scoreboard { display: flex; align-items: center; gap: 24px; padding: 10px 28px; color: white; background: var(--ink); border-radius: 0 0 14px 14px; box-shadow: 0 8px 0 rgba(24,20,63,.12); }
 .scoreboard__item { min-width: 64px; text-align: center; }
 .scoreboard__label { display: block; margin-bottom: 2px; color: #bdb8dc; font: 700 9px/1 var(--body); letter-spacing: .18em; }
@@ -258,6 +265,8 @@ footer { width: min(1180px, calc(100% - 40px)); margin: 0 auto; display: flex; j
 .challenge-card.pop { animation: pop .28s ease-out; }
 
 @media (max-width: 900px) {
+  .topbar__tools { gap: 12px; }
+  .creator-logo { padding: 5px 7px 6px 5px; }
   .hero { grid-template-columns: minmax(0, 1fr); padding-top: 42px; }
   .hero__visual { min-width: 0; max-width: 520px; width: 100%; margin: 0 auto 68px; }
   .level-preview { bottom: 20px; max-width: none; }
@@ -268,9 +277,13 @@ footer { width: min(1180px, calc(100% - 40px)); margin: 0 auto; display: flex; j
 }
 
 @media (max-width: 620px) {
-  .topbar { width: min(100% - 24px, 1180px); min-height: 78px; grid-template-columns: 1fr auto; }
+  .topbar { width: min(100% - 24px, 1180px); min-height: 78px; display: flex; justify-content: space-between; }
+  .brand__text { display: none; }
   .scoreboard { position: fixed; z-index: 8; left: 50%; bottom: 12px; transform: translateX(-50%); border-radius: 12px; box-shadow: 0 8px 28px rgba(0,0,0,.25); }
-  .sound-button { width: 39px; height: 39px; }
+  .sound-button { display: none; }
+  .topbar__tools { gap: 9px; }
+  .creator-logo__mark { width: 30px; height: 30px; font-size: 14px; }
+  .creator-logo__text strong { font-size: 13px; }
   main { width: min(100% - 24px, 1180px); }
   .hero { min-height: auto; padding: 38px 0 110px; }
   .hero__copy { width: 100%; overflow: hidden; padding-right: 7px; }
