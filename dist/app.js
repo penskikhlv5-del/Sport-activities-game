@@ -10,8 +10,8 @@ const levels = [
       { icon: "🎾", prompt: "Ты хочешь узнать, <em>когда</em> тренируется Mia.", context: "Mia trains on Tuesdays.", options: ["When", "Who", "Whose"], answer: "When", explain: "When = когда. When does Mia train?" },
       { icon: "🏀", prompt: "Ты хочешь узнать, <em>кто</em> играет в баскетбол.", context: "Alex plays basketball.", options: ["How old", "Who", "What"], answer: "Who", explain: "Who = кто. Who plays basketball?" },
       { icon: "🏊", prompt: "Ты хочешь узнать, <em>каким спортом</em> занимается Leo.", context: "Leo does karate.", options: ["What", "Where", "Whose"], answer: "What", explain: "What = что / какой. What sport does Leo do?" },
-      { icon: "🏐", prompt: "Ты хочешь узнать, <em>чей</em> это волейбольный мяч.", context: "It is Kate's volleyball.", options: ["Who", "When", "Whose"], answer: "Whose", explain: "Whose = чей / чья / чьё. Whose volleyball is it?" },
-      { icon: "🏅", prompt: "Ты хочешь узнать, <em>сколько медалей</em> есть у команды.", context: "The team has five medals.", options: ["How old", "How many", "What"], answer: "How many", explain: "How many = сколько (с предметами). How many medals does the team have?" },
+      { icon: "👟", prompt: "Ты хочешь узнать, <em>чьи</em> это футбольные бутсы.", context: "They are Ben's football boots.", options: ["Who", "When", "Whose"], answer: "Whose", explain: "Whose = чей / чья / чьи. Whose football boots are these?" },
+      { icon: "🏅", prompt: "Ты хочешь узнать, <em>сколько медалей</em> есть у команды.", context: "The team has got five medals.", options: ["How old", "How many", "What"], answer: "How many", explain: "How many = сколько (с предметами). How many medals has the team got?" },
       { icon: "🛹", prompt: "Ты хочешь узнать, <em>сколько лет</em> скейтбордисту.", context: "The skateboarder is ten.", options: ["When", "How many", "How old"], answer: "How old", explain: "How old = сколько лет. How old is the skateboarder?" }
     ]
   },
@@ -19,15 +19,15 @@ const levels = [
     label: "LEVEL 2",
     title: "BUILD IT",
     tag: "BUILD THE QUESTION",
-    coach: "Ставь слова по местам: вопросительное слово → do/does → кто? → глагол. После does глагол без -s!",
+    coach: "Ставь слова по формуле. Для Whose используй is/are, а для How many — have/has ... got.",
     type: "builder",
     items: [
       { icon: "🎾", prompt: "Спроси: <em>Где Emma играет в теннис?</em>", context: "Собери английский вопрос.", words: ["tennis", "Emma", "Where", "play", "does", "?"], answer: ["Where", "does", "Emma", "play", "tennis", "?"], hint: "Where + does + Emma + play ...?", explain: "После does используем play, не plays." },
       { icon: "⚽", prompt: "Спроси: <em>Когда они тренируются?</em>", context: "Собери английский вопрос.", words: ["train", "When", "they", "?", "do"], answer: ["When", "do", "they", "train", "?"], hint: "When + do + they + train ...?", explain: "С they нужен помощник do." },
       { icon: "🥋", prompt: "Спроси: <em>Каким спортом занимается Max?</em>", context: "Собери английский вопрос.", words: ["Max", "What", "do", "does", "sport", "?"], answer: ["What", "sport", "does", "Max", "do", "?"], hint: "What sport + does + Max + do ...?", explain: "Здесь первое do — обычный глагол, а does — помощник." },
-      { icon: "🏊", prompt: "Спроси: <em>Сколько раз в неделю ты плаваешь?</em>", context: "Собери английский вопрос.", words: ["week", "How many", "swim", "a", "times", "you", "do", "?"], answer: ["How many", "times", "a", "week", "do", "you", "swim", "?"], hint: "How many times a week + do + you + swim ...?", explain: "How many стоит вместе, а times a week уточняет количество." },
+      { icon: "🏀", prompt: "Спроси: <em>Сколько мячей у тебя?</em>", context: "Используй have got.", words: ["got", "How many", "you", "balls", "have", "do", "?"], answer: ["How many", "balls", "have", "you", "got", "?"], hint: "How many balls + have + you + got?", explain: "С I/you/we/they используем have got: How many balls have you got?" },
       { icon: "🏀", prompt: "Спроси: <em>Кто играет в баскетбол после школы?</em>", context: "Внимание: Who здесь само выполняет действие.", words: ["after school", "Who", "basketball", "plays", "does", "?"], answer: ["Who", "plays", "basketball", "after school", "?"], hint: "Who + plays + basketball ...? Помощник does не нужен.", explain: "Если Who означает «кто делает?», сразу ставим глагол с -s: Who plays...?" },
-      { icon: "🏸", prompt: "Спроси: <em>Чью ракетку использует Anna?</em>", context: "Собери английский вопрос.", words: ["use", "does", "Anna", "Whose", "racket", "?"], answer: ["Whose", "racket", "does", "Anna", "use", "?"], hint: "Whose racket + does + Anna + use ...?", explain: "Whose ставим перед предметом: Whose racket...?" },
+      { icon: "🏸", prompt: "Спроси: <em>Чья это ракетка?</em>", context: "Используй is.", words: ["it", "does", "Whose", "racket", "is", "?"], answer: ["Whose", "racket", "is", "it", "?"], hint: "Whose racket + is + it?", explain: "После Whose + предмет используем is/are: Whose racket is it?" },
       { icon: "🏅", prompt: "Спроси: <em>Сколько лет тренеру?</em>", context: "Здесь нужен глагол to be.", words: ["coach", "does", "the", "How old", "is", "?"], answer: ["How old", "is", "the", "coach", "?"], hint: "How old + is + the coach ...?", explain: "С возрастом используем is, а do/does не нужен." }
     ]
   },
@@ -35,15 +35,15 @@ const levels = [
     label: "LEVEL 3",
     title: "THE FINAL",
     tag: "FIND THE RIGHT QUESTION",
-    coach: "Проверь три вещи: есть ли помощник, стоит ли он перед подлежащим и не осталось ли -s у глагола после does.",
+    coach: "Проверь формулу: Whose + предмет + is/are; How many + предмет + have/has + кто? + got.",
     type: "correct",
     items: [
       { icon: "🏐", prompt: "Выбери правильный вопрос: <em>Где Nina играет в волейбол?</em>", context: "Только один вариант построен верно.", options: ["Where Nina plays volleyball?", "Where does Nina play volleyball?", "Where does Nina plays volleyball?"], answer: 1, explain: "Верно: Where + does + Nina + play. После does у play нет -s." },
       { icon: "🏃", prompt: "Выбери правильный вопрос: <em>Когда вы бегаете?</em>", context: "Только один вариант построен верно.", options: ["When do you run?", "When you do run?", "When does you run?"], answer: 0, explain: "С you используем do и ставим его перед подлежащим." },
       { icon: "🏒", prompt: "Выбери правильный вопрос: <em>Кто играет в хоккей?</em>", context: "Who означает «кто выполняет действие?»", options: ["Who does play hockey?", "Who play hockey?", "Who plays hockey?"], answer: 2, explain: "Who здесь подлежащее: сразу ставим plays, без does." },
-      { icon: "🏊", prompt: "Выбери правильный вопрос: <em>Сколько бассейнов есть в городе?</em>", context: "Только один вариант построен верно.", options: ["How many pools are there in the town?", "How many are there pools in the town?", "How old pools are there in the town?"], answer: 0, explain: "How many стоит перед существительным: How many pools are there...?" },
-      { icon: "🚴", prompt: "Выбери правильный вопрос: <em>Чей это велосипед?</em>", context: "Здесь нужен глагол to be.", options: ["Whose does bike it?", "Whose bike is it?", "Who bike is it?"], answer: 1, explain: "Whose + предмет + is + подлежащее: Whose bike is it?" },
-      { icon: "🧗", prompt: "Выбери правильный вопрос: <em>Сколько лет Oliver?</em>", context: "Здесь нужен глагол to be.", options: ["How many is Oliver?", "How old does Oliver?", "How old is Oliver?"], answer: 2, explain: "Возраст: How old + is + имя?" },
+      { icon: "⚽", prompt: "Выбери правильный вопрос: <em>Сколько мячей у него?</em>", context: "Используй has got.", options: ["How many balls has he got?", "How many balls have he got?", "How many balls has got he?"], answer: 0, explain: "С he/she/it используем has got: How many balls has he got?" },
+      { icon: "🚴", prompt: "Выбери правильный вопрос: <em>Чей это велосипед?</em>", context: "Здесь нужен глагол to be.", options: ["Whose is bike it?", "Whose bike is it?", "Whose bike are it?"], answer: 1, explain: "Whose + предмет + is/are + подлежащее: Whose bike is it?" },
+      { icon: "🧗", prompt: "Выбери правильный вопрос: <em>Сколько лет Oliver?</em>", context: "Здесь нужен глагол to be.", options: ["How old Oliver is?", "How old does Oliver?", "How old is Oliver?"], answer: 2, explain: "Возраст: How old + is + имя?" },
       { icon: "🏓", prompt: "Выбери правильный вопрос: <em>Во что они играют по пятницам?</em>", context: "Только один вариант построен верно.", options: ["What do they play on Fridays?", "What they play on Fridays?", "What does they play on Fridays?"], answer: 0, explain: "С they нужен do: What do they play...?" }
     ]
   }
